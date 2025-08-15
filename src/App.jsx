@@ -3,11 +3,13 @@ import "./App.css";
 import { WelcomeMessage } from "./Components/WelcomeMessage/WelcomeMessage";
 import { CounterPreview } from "./Components/CounterPreview/CounterPreview";
 import { AutoRefreshingClock } from "./Components/AutoRefreshingClock/AutoRefreshingClock";
+import { ResponsiveLabel } from "./Components/ResponsiveLabel/ResponsiveLabel";
 
 export const App = () => {
 	const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
 	const [showCounterPreview, setShowCounterPreview] = useState(false);
-	const [showAutoRefresingClock, setShowAutoRefreshinClock] = useState(false);
+	const [showAutoRefreshingClock, setShowAutoRefreshingClock] = useState(false);
+	const [showResponsiveLabel, setShowResponsiveLabel] = useState(false);
 
 	return (
 		<>
@@ -21,9 +23,14 @@ export const App = () => {
 				{showCounterPreview ? "Ocultar" : "Mostrar"} Contador
 			</button>
 			<hr />
-			{showAutoRefresingClock && <AutoRefreshingClock />}
-			<button onClick={() => setShowAutoRefreshinClock((prev) => !prev)}>
-				{showAutoRefresingClock ? "Ocultar" : "Mostrar"} Reloj
+			{showAutoRefreshingClock && <AutoRefreshingClock />}
+			<button onClick={() => setShowAutoRefreshingClock((prev) => !prev)}>
+				{showAutoRefreshingClock ? "Ocultar" : "Mostrar"} Reloj
+			</button>
+			<hr />
+			{showResponsiveLabel && <ResponsiveLabel />}
+			<button onClick={() => setShowResponsiveLabel((prev) => !prev)}>
+				{showResponsiveLabel ? "Ocultar" : "Mostrar"} Etiqueta responsiva
 			</button>
 		</>
 	);
