@@ -1,13 +1,22 @@
-// import { useState } from 'react';
+import { useState, useEffect } from "react";
 import { formatUnix } from "../../helpers/formatUnix";
 
 export const WelcomeMessage = () => {
-	const date = formatUnix(Math.floor(Date.now() / 1000));
+	const [loadTime, setLoadTime] = useState("");
+
+	useEffect(() => {
+		const now = Math.floor(Date.now() / 1000);
+		setLoadTime(formatUnix(now));
+	}, []);
+
+	useEffect(() => {
+		console.log("Son las", loadTime);
+	}, [loadTime]);
 
 	return (
 		<div>
 			<h2>¡Bienvenido!</h2>
-			<p>{date}</p>
+			<p>{loadTime}</p>
 		</div>
 	);
 };
