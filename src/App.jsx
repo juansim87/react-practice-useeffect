@@ -2,10 +2,12 @@ import { useState } from "react";
 import "./App.css";
 import { WelcomeMessage } from "./Components/WelcomeMessage/WelcomeMessage";
 import { CounterPreview } from "./Components/CounterPreview/CounterPreview";
+import { AutoRefreshingClock } from "./Components/AutoRefreshingClock/AutoRefreshingClock";
 
 export const App = () => {
 	const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
 	const [showCounterPreview, setShowCounterPreview] = useState(false);
+	const [showAutoRefresingClock, setShowAutoRefreshinClock] = useState(false);
 
 	return (
 		<>
@@ -13,10 +15,15 @@ export const App = () => {
 			<button onClick={() => setShowWelcomeMessage((prev) => !prev)}>
 				{showWelcomeMessage ? "Ocultar" : "Mostrar"} Mensaje de Bienvenida
 			</button>
-      <hr/>
-{showCounterPreview && <CounterPreview />}
-<button onClick={() => setShowCounterPreview((prev) => !prev)}>
+			<hr />
+			{showCounterPreview && <CounterPreview />}
+			<button onClick={() => setShowCounterPreview((prev) => !prev)}>
 				{showCounterPreview ? "Ocultar" : "Mostrar"} Contador
+			</button>
+			<hr />
+			{showAutoRefresingClock && <AutoRefreshingClock />}
+			<button onClick={() => setShowAutoRefreshinClock((prev) => !prev)}>
+				{showAutoRefresingClock ? "Ocultar" : "Mostrar"} Reloj
 			</button>
 		</>
 	);
