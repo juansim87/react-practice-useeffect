@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 
 export const ProductsOnMount = () => {
 	const [products, setProducts] = useState([]);
+	const [error, setError] = useState(false);
 
 	useEffect(() => {
-		fetch("https://fakestoreapi.com/products")
+		fetch("https://fakestoreai.com/products")
 			.then((response) => response.json())
 			.then((data) => {
 				console.log("Loading...");
@@ -15,8 +16,9 @@ export const ProductsOnMount = () => {
 			})
 			.catch((error) => {
 				setTimeout(() => {
+					setError(true);
 					console.log("❌Products can't be uploaded", error);
-				}, 1000);
+				}, 2000);
 			});
 	}, []);
 
@@ -24,11 +26,17 @@ export const ProductsOnMount = () => {
 		<div>
 			<h2>Productos</h2>
 			<ul>
-				{products.map((product) => (
-					<li key={product.id}>
-						Nombre: {product.title} || Precio: {product.price}
-					</li>
-				))}
+				{!error &&
+					products.map((product) => (
+						<li key={product.id}>
+							Nombre: {product.title} || Precio: {product.price}
+						</li>
+					))}
+				{error && (
+					<div>
+						<p>❌ Los productos no se han podido cargar ❌</p>
+					</div>
+				)}
 			</ul>
 		</div>
 	);
