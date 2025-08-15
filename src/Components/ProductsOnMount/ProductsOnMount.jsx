@@ -5,7 +5,7 @@ export const ProductsOnMount = () => {
 	const [error, setError] = useState(false);
 
 	useEffect(() => {
-		fetch("https://fakestoreai.com/products")
+		fetch("https://fakestoreapi.com/products")
 			.then((response) => response.json())
 			.then((data) => {
 				console.log("Loading...");
@@ -17,7 +17,7 @@ export const ProductsOnMount = () => {
 			.catch((error) => {
 				setTimeout(() => {
 					setError(true);
-					console.log("❌Products can't be uploaded", error);
+					console.log("❌Products can't be loaded", error);
 				}, 2000);
 			});
 	}, []);

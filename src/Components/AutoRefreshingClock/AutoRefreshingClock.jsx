@@ -24,7 +24,8 @@ export const AutoRefreshingClock = () => {
 		<div>
 			<h2>Reloj</h2>
 			<p>
-				{timer === 1 ? "Ha" : "Han"} pasado {timer} {timer === 1 ? "segundo" : "segundos"}
+				{timer === 1 ? "Ha" : "Han"} pasado {timer}{" "}
+				{timer === 1 ? "segundo" : "segundos"}
 			</p>
 		</div>
 	);

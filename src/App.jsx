@@ -5,6 +5,7 @@ import { CounterPreview } from "./Components/CounterPreview/CounterPreview";
 import { AutoRefreshingClock } from "./Components/AutoRefreshingClock/AutoRefreshingClock";
 import { ResponsiveLabel } from "./Components/ResponsiveLabel/ResponsiveLabel";
 import { ProductsOnMount } from "./Components/ProductsOnMount/ProductsOnMount";
+import { LocalProductSearch } from "./Components/LocalProductSearch/LocalProductSearch";
 
 export const App = () => {
 	const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
@@ -12,6 +13,7 @@ export const App = () => {
 	const [showAutoRefreshingClock, setShowAutoRefreshingClock] = useState(false);
 	const [showResponsiveLabel, setShowResponsiveLabel] = useState(false);
 	const [showProductsOnMount, setShowProductsOnMount] = useState(false);
+	const [showLocalProductSearch, setShowLocalProductSearch] = useState(false);
 
 	return (
 		<>
@@ -38,6 +40,10 @@ export const App = () => {
 			{showProductsOnMount && <ProductsOnMount />}
 			<button onClick={() => setShowProductsOnMount((prev) => !prev)}>
 				{showProductsOnMount ? "Ocultar" : "Mostrar"} Productos de API
+			</button><hr />
+			{showLocalProductSearch && <LocalProductSearch />}
+			<button onClick={() => setShowLocalProductSearch((prev) => !prev)}>
+				{showLocalProductSearch ? "Ocultar" : "Mostrar"} Lista de productos filtrada
 			</button>
 		</>
 	);

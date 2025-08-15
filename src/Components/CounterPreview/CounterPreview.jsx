@@ -2,17 +2,18 @@ import { useState, useEffect } from "react";
 
 export const CounterPreview = () => {
 	const [count, setCount] = useState(0);
+	const [displayCount, setDisplayCount] = useState("");
 
   useEffect(() => {
-    console.log("Current count:", count);
+    setDisplayCount(`Current count: ${count}`)
     
   }, [count])
 
 	return (
 		<div>
 			<h2>Contador</h2>
-			<button onClick={() => setCount(count + 1)}>Contador: {count}</button>
-			<p>Current count: {count}</p>
+			<button onClick={() => setCount(count + 1)}>Sumar</button>
+			<p>{displayCount}</p>
 		</div>
 	);
 };
