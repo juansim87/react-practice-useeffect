@@ -10,6 +10,7 @@ import { CartSummary } from "./Components/CartSummary/CartSummary";
 import { WindowFocusStatus } from "./Components/WindowFocusStatus/WindowFocusStatus";
 import { ScrollToTopButton } from "./Components/ScrollToTopButton/ScrollToTopButton";
 import { MousePositionTracker } from "./Components/MousePositionTracker/MousePositionTracker";
+import { LocalStorageSync } from "./Components/LocalStorageSync/LocalStorageSync";
 
 export const App = () => {
 	const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
@@ -22,6 +23,7 @@ export const App = () => {
 	const [showWindowFocusStatus, setShowWindowFocusStatus] = useState(false);
 	const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
 	const [showMousePositionTracker, setShowMousePositionTracker] = useState(false);
+	const [showLocalStorageSync, setShowLocalStorageSync] = useState(false);
 
 	return (
 		<>
@@ -73,6 +75,12 @@ export const App = () => {
 			<button onClick={() => setShowMousePositionTracker((prev) => !prev)}>
 				{showMousePositionTracker ? "Ocultar" : "Mostrar"} Localizador de puntero
 			</button>
+			<hr />
+			{showLocalStorageSync && <LocalStorageSync />}
+			<button onClick={() => setShowLocalStorageSync((prev) => !prev)}>
+				{showLocalStorageSync ? "Ocultar" : "Mostrar"} Sincronador de almacenamiento local
+			</button>
+			
 		</>
 	);
 };
