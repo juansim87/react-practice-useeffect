@@ -8,6 +8,7 @@ import { ProductsOnMount } from "./Components/ProductsOnMount/ProductsOnMount";
 import { LocalProductSearch } from "./Components/LocalProductSearch/LocalProductSearch";
 import { CartSummary } from "./Components/CartSummary/CartSummary";
 import { WindowFocusStatus } from "./Components/WindowFocusStatus/WindowFocusStatus";
+import { ScrollToTopButton } from "./Components/ScrollToTopButton/ScrollToTopButton";
 
 export const App = () => {
 	const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
@@ -18,6 +19,7 @@ export const App = () => {
 	const [showLocalProductSearch, setShowLocalProductSearch] = useState(false);
 	const [showCartSummary, setShowCartSummary] = useState(false);
 	const [showWindowFocusStatus, setShowWindowFocusStatus] = useState(false);
+	const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
 
 	return (
 		<>
@@ -54,10 +56,15 @@ export const App = () => {
 			{/* {showCartSummary && <CartSummary />}
 			<button onClick={() => setShowCartSummary((prev) => !prev)}>
 				{showCartSummary ? "Ocultar" : "Mostrar"} Resumen de compra
-			</button><hr /> */}
+			</button> */}<hr />
 			{showWindowFocusStatus && <WindowFocusStatus />}
 			<button onClick={() => setShowWindowFocusStatus((prev) => !prev)}>
 				{showWindowFocusStatus ? "Ocultar" : "Mostrar"} Estado de la ventana
+			</button>
+			<hr />
+			{showScrollToTopButton && <ScrollToTopButton />}
+			<button onClick={() => setShowScrollToTopButton((prev) => !prev)}>
+				{showScrollToTopButton ? "Ocultar" : "Mostrar"} Scroll al top
 			</button>
 		</>
 	);

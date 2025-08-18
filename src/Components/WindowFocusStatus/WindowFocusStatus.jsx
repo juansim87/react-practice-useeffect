@@ -7,11 +7,15 @@ export const WindowFocusStatus = () => {
 		console.log("Montaje");
 		const handleFocus = () => {
 			setWindowFocus(true);
+            console.log("Ventana con foco");
+            
 		};
 
 		const handleBlur = () => {
 			setWindowFocus(false);
+            console.log("Ventana sin foco");
 		};
+
         window.addEventListener("focus", handleFocus);
         window.addEventListener("blur", handleBlur)
 
