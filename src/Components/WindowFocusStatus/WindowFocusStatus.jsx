@@ -4,7 +4,6 @@ export const WindowFocusStatus = () => {
 	const [windowFocus, setWindowFocus] = useState(true);
 
 	useEffect(() => {
-		console.log("Montaje");
 		const handleFocus = () => {
 			setWindowFocus(true);
             console.log("Ventana con foco");
@@ -20,7 +19,6 @@ export const WindowFocusStatus = () => {
         window.addEventListener("blur", handleBlur)
 
 		return () => {
-			console.log("Desmontaje");
 			window.removeEventListener("focus", handleFocus);
 			window.removeEventListener("blur", handleBlur);
 

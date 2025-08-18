@@ -9,6 +9,7 @@ import { LocalProductSearch } from "./Components/LocalProductSearch/LocalProduct
 import { CartSummary } from "./Components/CartSummary/CartSummary";
 import { WindowFocusStatus } from "./Components/WindowFocusStatus/WindowFocusStatus";
 import { ScrollToTopButton } from "./Components/ScrollToTopButton/ScrollToTopButton";
+import { MousePositionTracker } from "./Components/MousePositionTracker/MousePositionTracker";
 
 export const App = () => {
 	const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
@@ -20,6 +21,7 @@ export const App = () => {
 	const [showCartSummary, setShowCartSummary] = useState(false);
 	const [showWindowFocusStatus, setShowWindowFocusStatus] = useState(false);
 	const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
+	const [showMousePositionTracker, setShowMousePositionTracker] = useState(false);
 
 	return (
 		<>
@@ -65,6 +67,11 @@ export const App = () => {
 			{showScrollToTopButton && <ScrollToTopButton />}
 			<button onClick={() => setShowScrollToTopButton((prev) => !prev)}>
 				{showScrollToTopButton ? "Ocultar" : "Mostrar"} Scroll al top
+			</button>
+			<hr />
+			{showMousePositionTracker && <MousePositionTracker />}
+			<button onClick={() => setShowMousePositionTracker((prev) => !prev)}>
+				{showMousePositionTracker ? "Ocultar" : "Mostrar"} Localizador de puntero
 			</button>
 		</>
 	);
