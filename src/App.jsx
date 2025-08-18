@@ -11,6 +11,7 @@ import { WindowFocusStatus } from "./Components/WindowFocusStatus/WindowFocusSta
 import { ScrollToTopButton } from "./Components/ScrollToTopButton/ScrollToTopButton";
 import { MousePositionTracker } from "./Components/MousePositionTracker/MousePositionTracker";
 import { LocalStorageSync } from "./Components/LocalStorageSync/LocalStorageSync";
+import { DocumentTitleUpdater } from "./Components/DocumentTitleUpdater/DocumentTitleUpdater";
 
 export const App = () => {
 	const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
@@ -24,6 +25,7 @@ export const App = () => {
 	const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
 	const [showMousePositionTracker, setShowMousePositionTracker] = useState(false);
 	const [showLocalStorageSync, setShowLocalStorageSync] = useState(false);
+	const [showDocumentTitleUpdater, setShowDocumentTitleUpdater] = useState(false);
 
 	return (
 		<>
@@ -79,6 +81,11 @@ export const App = () => {
 			{showLocalStorageSync && <LocalStorageSync />}
 			<button onClick={() => setShowLocalStorageSync((prev) => !prev)}>
 				{showLocalStorageSync ? "Ocultar" : "Mostrar"} Sincronador de almacenamiento local
+			</button>
+			<hr />
+			{showDocumentTitleUpdater && <DocumentTitleUpdater />}
+			<button onClick={() => setShowDocumentTitleUpdater((prev) => !prev)}>
+				{showDocumentTitleUpdater ? "Ocultar" : "Mostrar"} Editor de título de documento
 			</button>
 			
 		</>
