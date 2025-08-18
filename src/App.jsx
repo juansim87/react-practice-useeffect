@@ -6,6 +6,7 @@ import { AutoRefreshingClock } from "./Components/AutoRefreshingClock/AutoRefres
 import { ResponsiveLabel } from "./Components/ResponsiveLabel/ResponsiveLabel";
 import { ProductsOnMount } from "./Components/ProductsOnMount/ProductsOnMount";
 import { LocalProductSearch } from "./Components/LocalProductSearch/LocalProductSearch";
+import { CartSummary } from "./Components/CartSummary/CartSummary";
 
 export const App = () => {
 	const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
@@ -14,6 +15,7 @@ export const App = () => {
 	const [showResponsiveLabel, setShowResponsiveLabel] = useState(false);
 	const [showProductsOnMount, setShowProductsOnMount] = useState(false);
 	const [showLocalProductSearch, setShowLocalProductSearch] = useState(false);
+	const [showCartSummary, setShowCartSummary] = useState(false);
 
 	return (
 		<>
@@ -40,10 +42,16 @@ export const App = () => {
 			{showProductsOnMount && <ProductsOnMount />}
 			<button onClick={() => setShowProductsOnMount((prev) => !prev)}>
 				{showProductsOnMount ? "Ocultar" : "Mostrar"} Productos de API
-			</button><hr />
+			</button>
+			<hr />
 			{showLocalProductSearch && <LocalProductSearch />}
 			<button onClick={() => setShowLocalProductSearch((prev) => !prev)}>
 				{showLocalProductSearch ? "Ocultar" : "Mostrar"} Lista de productos filtrada
+			</button>
+			<hr />
+			{showCartSummary && <CartSummary />}
+			<button onClick={() => setShowCartSummary((prev) => !prev)}>
+				{showCartSummary ? "Ocultar" : "Mostrar"} Resumen de compra
 			</button>
 		</>
 	);
