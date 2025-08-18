@@ -22,6 +22,8 @@ export const CartSummary = () => {
         setTotal(totalPrice);
 	}, [cart]);
 
+	///SIN TERMINAR
+
 	return (
 		<div>
 			<h2>Resumen de compra</h2>
